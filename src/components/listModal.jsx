@@ -4,30 +4,32 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from 'moment';
 
 function ListModal(props) {
+
     window.lin = 'ddads'
     let id_con;
     const [open, setOpen] = useState(false)
-    const [mine, setMine] = useState({ ...props.contract })
+    const [mine, setMine] = useState()
     const companys = [
-        { name: "Wal-Mart Stores", contactDate: '12/12/12', contractNumber: 1241343 },
-        { name: "Exxon Mobil", contactDate: '12/12/10', contractNumber: 1241343 },
-        { name: "Chevron", contactDate: '12/12/12', contractNumber: 1241343 },
-        { name: "Berkshire Hathaway", contactDate: '12/12/12', contractNumber: 1241343 },
-        { name: "Apple", contactDate: '12/12/12', contractNumber: 1241343 },
-        { name: "Phillips 66", contactDate: '12/12/12', contractNumber: 1241343 },
+        { name: "Wal-Mart Stores", contactDate: '12/12/12', contractNumber: 1234 },
+        { name: "Exxon Mobil", contactDate: '12/12/10', contractNumber: 43242 },
+        { name: "Chevron", contactDate: '12/12/12', contractNumber: 324243 },
+        { name: "Berkshire Hathaway", contactDate: '12/12/12', contractNumber: 12413432443 },
+        { name: "Apple", contactDate: '12/12/12', contractNumber: 12434241343 },
+        { name: "Phillips 66", contactDate: '12/12/12', contractNumber: 124341343 },
     ]
 
     const few = (e, name_contract) => {
-        console.log(e.childNodes[0].checked, name_contract)
         if(window.lin == 'ddads') {
             window.lin = e.childNodes[0]
+            e.childNodes[0].checked = true;
             id_con = e.childNodes[0].id 
         } else {
             window.lin.checked = false;
-            debugger;
+            e.childNodes[0].checked = true;
             window.lin = e.childNodes[0];
             id_con = e.childNodes[0].id
         }
+
     }
 
     return (
