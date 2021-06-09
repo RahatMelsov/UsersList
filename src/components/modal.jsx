@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Header, Icon, Modal, Form, Checkbox, Grid, Segment } from 'semantic-ui-react'
+import { Button, Header, Icon, Modal, Form, Input } from 'semantic-ui-react'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from 'moment';
@@ -9,38 +9,6 @@ function ModalExampleCloseIcon(props) {
     const [mine, setMine] = useState({ ...props.user })
     const [startDate, setStartDate] = useState(new Date());
 
-    const SingleChoose = (checkbox, name_chek) => {
-        console.log(checkbox, name_chek)
-        let c = document.getElementsByName(name_chek)
-        debugger;
-    }
-
-    const contractsData = {
-        companys: [
-            "Wal-Mart Stores",
-            "Exxon Mobil",
-            "Chevron",
-            "Berkshire Hathaway",
-            "Apple",
-            "Phillips 66",
-        ],
-        contactDate: [
-            '12/12/12',
-            '12/12/10',
-            '12/07/12',
-            '10/12/12',
-            '12/12/07',
-            '12/06/12',
-        ],
-        contractNumber: [
-            1241343,
-            2144314,
-            1231413,
-            2314352,
-            3132431,
-            3214243
-        ]
-    }
 
     return (
         <Modal
@@ -83,41 +51,6 @@ function ModalExampleCloseIcon(props) {
                                 }} />
                         </Form.Field>
                     </Form.Group>
-                    <label><h2>Contract</h2></label>
-                    <Grid columns='equal' divided inverted padded>
-                        <Grid.Row color='black' textAlign='left'>
-                            <Grid.Column>
-                                <label><h3>Company</h3></label>
-                                {contractsData.companys.map(u => {
-                                    return (
-                                        <Segment color='black' inverted>
-                                            <Checkbox label={u} name="company" onClick={(event) => SingleChoose(event.target, 'company')} />
-                                        </Segment>
-                                    )
-                                })}
-                            </Grid.Column>
-                            <Grid.Column>
-                                <label><h3>Number of Document</h3></label>
-                                {contractsData.contractNumber.map(u => {
-                                    return (
-                                        <Segment color='black' inverted>
-                                            <Checkbox label={u} name="number" onClick={(event) => SingleChoose(event.target, 'company')} />
-                                        </Segment>
-                                    )
-                                })}
-                            </Grid.Column>
-                            <Grid.Column>
-                                <label><h3>Date Agree</h3></label>
-                                {contractsData.contactDate.map(u => {
-                                    return (
-                                        <Segment color='black' inverted>
-                                            <Checkbox label={u} name="date" onClick={(event) => SingleChoose(event.target, 'company')} />
-                                        </Segment>
-                                    )
-                                })}
-                            </Grid.Column>
-                        </Grid.Row>
-                    </Grid>
                 </Form>
             </Modal.Content>
             <Modal.Actions>
