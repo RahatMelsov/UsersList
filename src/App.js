@@ -7,11 +7,13 @@ import ListModal from './components/listModal'
 import moment from 'moment';
 
 function App() {
+  debugger;
   const contract = {
     name: "Wal-Mart Stores", 
     contactDate: '12/12/12', 
     contractNumber: 1241343
   }
+  window.contract = contract;
   const Users = [
     {
       named: "Oliver ",
@@ -61,16 +63,16 @@ function App() {
     <Grid columns='equal'>
     <Grid.Row>
       <Grid.Column>
-        <Segment>{contract.name}</Segment>
+        <Segment>{contracts.name}</Segment>
       </Grid.Column>
       <Grid.Column>
-        <Segment>{contract.contractNumber}</Segment>
+        <Segment>{contracts.contractNumber}</Segment>
       </Grid.Column>
       <Grid.Column>
-        <Segment>{moment(contract.dateContract).format('L')}</Segment>
+        <Segment>{moment(contracts.dateContract).format('L')}</Segment>
       </Grid.Column>
       <Grid.Column>
-        <ListModal contract = {contract} setContract={setContract}/>
+        <ListModal contracts = {contracts} setContract={setContract}/>
       </Grid.Column>
     </Grid.Row>
     </Grid>
