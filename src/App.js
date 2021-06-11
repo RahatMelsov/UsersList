@@ -1,7 +1,7 @@
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
 import React, { useState } from 'react'
-import { Table, Grid, Segment } from 'semantic-ui-react'
+import { Table, Form, Segment } from 'semantic-ui-react'
 import TableList from './components/table'
 import ListModal from './components/listModal'
 import moment from 'moment';
@@ -13,7 +13,6 @@ function App() {
     contactDate: '12/12/12', 
     contractNumber: 1241343
   }
-  window.contract = contract;
   const Users = [
     {
       named: "Oliver ",
@@ -50,7 +49,7 @@ function App() {
   return (
     <div>
       <Table celled striped>
-      <Table.Header>
+      <Table.Header class='adaptive'>
         <Table.Row>
           <Table.HeaderCell>First name</Table.HeaderCell>
           <Table.HeaderCell>Last name</Table.HeaderCell>
@@ -60,22 +59,14 @@ function App() {
       </Table.Header>
       <TableList users={users} setUsers={setUsers} />
     </Table>
-    <Grid columns='equal'>
-    <Grid.Row>
-      <Grid.Column>
-        <Segment>{contracts.name}</Segment>
-      </Grid.Column>
-      <Grid.Column>
-        <Segment>{contracts.contractNumber}</Segment>
-      </Grid.Column>
-      <Grid.Column>
-        <Segment>{moment(contracts.dateContract).format('L')}</Segment>
-      </Grid.Column>
-      <Grid.Column>
-        <ListModal contracts = {contracts} setContract={setContract}/>
-      </Grid.Column>
-    </Grid.Row>
-    </Grid>
+    <Form>
+        <Form.Group widths='equal'>
+          <Form.Input fluid label='First name' value={contracts.name} />
+          <Form.Input fluid label='Last name' value= {contracts.contractNumber} />
+          <Form.Input fluid label='Last name' value={moment(contracts.dateContract).format('L')} />
+          <Form.Button size='tiny'><ListModal contracts = {contracts} setContract={setContract}/></Form.Button>
+        </Form.Group>
+        </Form>
     </div>
     
   );
